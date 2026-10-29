@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Change the accent here — it is the only place it's defined. */
+:root {
+  --accent: #c6ff3d;
+
+  --bg: #262a1e;
+  --surface: #2e3325;
+  --fg: #e3e5d6;
+  --muted: #9ea388;
+  --line: #3f4532;
+  --light: #f3f3ee;
+  --ink: #1b1d14;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-light: var(--light);
+  --color-ink: var(--ink);
+
+  --font-heading: var(--font-mona);
+  --font-body: var(--font-mona);
+  --font-serif: var(--font-bodoni);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  text-transform: uppercase;
+  font-family: var(--font-mona), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heavy, tight display type like the reference site. */
+.font-heading {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.font-serif {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-block {
+  animation: blink 1s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse,
+  .animate-ping,
+  .cursor-block {
+    animation: none;
+  }
+}
+
+input,
+textarea {
+  text-transform: uppercase;
+}
